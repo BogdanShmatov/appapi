@@ -29,9 +29,15 @@ use Yii;
  */
 class Course extends \yii\db\ActiveRecord
 {
+    public function fields()
+    {
+        return ['id', 'cat_id', 'cat', 'course_name', 'course_author', 'course_img_url', 'course_video_url',
+                'course_description', 'course_price', 'course_preview', 'course_isFree', 'date', 'lessons'];
+    }
+
     public function extraFields()
     {
-        return ['cat', 'lessons0'];
+        return ['lessons0'];
     }
 
     /**
