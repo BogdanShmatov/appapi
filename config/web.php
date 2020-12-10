@@ -64,6 +64,8 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user', 'pluralize' => false],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'course', 'pluralize' => false],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'category', 'pluralize' => false],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'lesson', 'pluralize' => false],
+
                 '<action>'=>'site/<action>',
             ],
         ],

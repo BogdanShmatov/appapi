@@ -26,7 +26,6 @@ class m201014_161448_create_course_table extends Migration
             'course_price' => $this->integer()->notNull(),
             'course_preview' => $this->string()->notNull(),
             'course_isFree' => $this->boolean()->notNull()->defaultValue(0),
-            'lessons' => $this->integer(),
 
         ]);
 
@@ -39,8 +38,7 @@ class m201014_161448_create_course_table extends Migration
                 'course_description',
                 'course_price',
                 'course_preview',
-                'course_isFree',
-                'lessons'], [
+                'course_isFree'], [
 
                 ['1',
                     'Unity 2017 для начинающих',
@@ -50,8 +48,7 @@ class m201014_161448_create_course_table extends Migration
                     'Создайте свою первую игру в Unity!',
                     '12',
                     'https://www.youtube.com/embed/e-5obm1G_FY',
-                    '0',
-                    '1'
+                    '0'
                 ],
                 ['2',
                     'React Native 2020',
@@ -61,8 +58,7 @@ class m201014_161448_create_course_table extends Migration
                     'Мобильные приложения для Android/iOS на JS + React JS',
                     '0',
                     'https://www.youtube.com/embed/IxRJ8vplzAo',
-                    '1',
-                    '6'
+                    '1'
                 ],
                 ['3',
                     'Google AdWords 2020',
@@ -72,8 +68,7 @@ class m201014_161448_create_course_table extends Migration
                     'Learn how to effectively use AdWords grow your business.',
                     '225',
                     'https://www.youtube.com/embed/f02mOEt11OQ',
-                    '0',
-                    '8'
+                    '0'
                 ],
                 ['4',
                     'Build Your Startup',
@@ -83,8 +78,7 @@ class m201014_161448_create_course_table extends Migration
                     'Learn to design, structure, and deploy a SaaS startup with Bubble.',
                     '0',
                     'https://www.youtube.com/embed/UyoXKGQrmtY',
-                    '1',
-                    '18'
+                    '1'
                 ],
                 ['5',
                     'Adobe Illustrator',
@@ -94,8 +88,7 @@ class m201014_161448_create_course_table extends Migration
                     'Курс по Adobe Illustrator до профессионального иллюстратора за 1,5 часа',
                     '112',
                     'https://www.youtube.com/embed/uOUXDipWeN8',
-                    '0',
-                    '21'
+                    '0'
                 ],
                 ['6',
                     'PHP for Beginners',
@@ -105,8 +98,7 @@ class m201014_161448_create_course_table extends Migration
                     'Learn everything you need to become a professional PHP developer.',
                     '0',
                     'https://www.youtube.com/embed/sRJ6GYiCwkI',
-                    '1',
-                    '23'
+                    '1'
                 ],
             ]
         );

@@ -17,7 +17,6 @@ use Yii;
  * @property int $course_price
  * @property string $course_preview
  * @property int $course_isFree
- * @property int|null $lessons
  * @property string|null $date
  *
  * @property Comment[] $comments
@@ -32,7 +31,7 @@ class Course extends \yii\db\ActiveRecord
     public function fields()
     {
         return ['id', 'cat_id', 'cat', 'course_name', 'course_author', 'course_img_url', 'course_video_url',
-                'course_description', 'course_price', 'course_preview', 'course_isFree', 'date', 'lessons'];
+                'course_description', 'course_price', 'course_preview', 'course_isFree', 'date'];
     }
 
     public function extraFields()
@@ -54,7 +53,7 @@ class Course extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cat_id', 'course_price', 'course_isFree', 'lessons'], 'integer'],
+            [['cat_id', 'course_price', 'course_isFree'], 'integer'],
             [['course_name', 'course_author', 'course_img_url', 'course_video_url', 'course_description', 'course_price', 'course_preview'], 'required'],
             [['date'], 'safe'],
             [['course_name', 'course_author', 'course_img_url', 'course_video_url', 'course_description', 'course_preview'], 'string', 'max' => 255],
@@ -78,7 +77,6 @@ class Course extends \yii\db\ActiveRecord
             'course_price' => 'Course Price',
             'course_preview' => 'Course Preview',
             'course_isFree' => 'Course Is Free',
-            'lessons' => 'Lessons',
             'date' => 'Date',
         ];
     }
