@@ -36,7 +36,7 @@ class Course extends \yii\db\ActiveRecord
 
     public function extraFields()
     {
-        return ['lessons0'];
+        return ['lessons0', 'user_id'];
     }
 
     /**
@@ -53,7 +53,7 @@ class Course extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cat_id', 'course_price', 'course_isFree'], 'integer'],
+            [['cat_id', 'course_price', 'course_isFree', 'user_id'], 'integer'],
             [['course_name', 'course_author', 'course_img_url', 'course_video_url', 'course_description', 'course_price', 'course_preview'], 'required'],
             [['date'], 'safe'],
             [['course_name', 'course_author', 'course_img_url', 'course_video_url', 'course_description', 'course_preview'], 'string', 'max' => 255],
@@ -78,6 +78,7 @@ class Course extends \yii\db\ActiveRecord
             'course_preview' => 'Course Preview',
             'course_isFree' => 'Course Is Free',
             'date' => 'Date',
+            'user_id' => 'Author ID',
         ];
     }
 
