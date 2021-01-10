@@ -2,14 +2,48 @@
 namespace app\models;
 
 
+
 use yii\db\ActiveRecord;
 use yii\helpers\Url;
+use yii\web\IdentityInterface;
 use yii\web\Link;
 use yii\web\Linkable;
 
 
-class User extends ActiveRecord implements Linkable
+class User extends ActiveRecord implements IdentityInterface
 {
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        return static::findOne(['auth_key' => $token]);
+    }
+
+    public static function findIdentity($id)
+    {
+        return static::findOne(['id' => $id]);
+    }
+    /**
+     * @inheritdoc
+     */
+    public function getId()
+    {
+        return $this->getPrimaryKey();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAuthKey()
+    {
+        return $this->auth_key;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function validateAuthKey($authKey)
+    {
+        return $this->getAuthKey() === $authKey;
+    }
     public function fields()
     {
         $fields = parent::fields();
@@ -21,10 +55,5 @@ class User extends ActiveRecord implements Linkable
         return $fields;
     }
 
-    public function getLinks()
-    {
-        return [
-            Link::REL_SELF => Url::to(['user/view', 'id' => $this->id], true),
-        ];
-    }
+
 }
