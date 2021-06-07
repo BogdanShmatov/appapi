@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\Course;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -124,7 +126,20 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $query = Course::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'sort' => false,
+            'pagination' => [
+                'pageSize' => 4,
+            ],
+        ]);
+//        if (!Yii::$app->request->post()){
+//            return json_encode(['output'=>"The Great Gatsby2","message"=>""]);
+//        }else {
+//            return json_encode(['output'=>"","message"=>"Error"]);
+//        }
+        return $this->render('about', ['dataProvider' => $dataProvider]);
     }
 
 }

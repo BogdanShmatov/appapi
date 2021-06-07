@@ -66,3 +66,21 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php endif; ?>
 </div>
+<?php
+
+$js = <<<JS
+
+
+$('#contact-form').on('beforeSubmit', function (el) {
+    el.preventDefault();
+    var data = $(this).serialize();
+	 $.ajax({
+	    url: 'contact',
+	    type: 'POST',
+	    data: data
+	 });
+	 return false;
+})
+
+JS;
+$this->registerJs($js);
